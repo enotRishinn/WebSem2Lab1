@@ -12,7 +12,7 @@ function clickOnSearchButton() {
       let weather = getWeather(xhr.response);
       displayWeather(weather);
     } else {
-      alert("Ошибка запроса. Проверьте правильность написания города");
+      alert("The request failed. Check the spelling of the city");
     }
   }
   xhr.send();
@@ -20,14 +20,14 @@ function clickOnSearchButton() {
 
 function getWeather(resp) {
   let weather = {
-  "city": resp.name,
-  "text_weather": resp.weather[0].description,
-  "Param": [
-    {"type": "temperature", "value": resp.main.temp, "unit": " &deg;C"},
-    {"type": "pressure", "value": resp.main.pressure, "unit": " hPA"},
-    {"type": "humidity", "value": resp.main.humidity, "unit": "%"},
-    {"type": "wind speed", "value": resp.wind.speed, "unit": " m/s"},
-    {"type": "clouds", "value": resp.clouds.all, "unit": "%"},
+  "param": [
+    {"type": "City", "value": resp.name},
+    {"type": "Weather", "value": resp.weather[0].description},
+    {"type": "Temperature, &deg;C", "value": resp.main.temp},
+    {"type": "Pressure, hPA", "value": resp.main.pressure},
+    {"type": "Humidity, %", "value": resp.main.humidity},
+    {"type": "Wind speed, m/s", "value": resp.wind.speed},
+    {"type": "Clouds, %", "value": resp.clouds.all},
   ]
   }
   return weather;
