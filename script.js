@@ -20,17 +20,19 @@ function clickOnSearchButton() {
 
 function getWeather(resp) {
   let weather = {
-    "city": resp.name;
-    "text_weather": resp.weather[0].description;
-    "temperature": resp.main.temp + " &deg;C";
-    "pressure": resp.main.pressure + " hPA";
-    "humidity": resp.main.humidity + "%"
-    "wind speed": resp.wind.speed + " m/s"
-    "clouds": resp.clouds.all + "%"
+  "city": resp.name,
+  "text_weather": resp.weather[0].description,
+  "Param": [
+    {"type": "temperature", "value": resp.main.temp, "unit": " &deg;C"},
+    {"type": "pressure", "value": resp.main.pressure, "unit": " hPA"},
+    {"type": "humidity", "value": resp.main.humidity, "unit": "%"},
+    {"type": "wind speed", "value": resp.wind.speed, "unit": " m/s"},
+    {"type": "clouds", "value": resp.clouds.all, "unit": "%"},
+  ]
   }
   return weather;
 }
 
 function displayWeather(weather) {
-  
+
 }
