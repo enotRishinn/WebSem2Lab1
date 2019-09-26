@@ -1,0 +1,31 @@
+body {
+  background-color: #8aa5bf;
+  font-family: sans-serif;
+  font-size: 30px;
+  padding: 1%;
+  margin-bottom: 5%; }
+
+.header {
+  font-family: sans-serif;
+  font-size: 30px;
+  padding: 1%;
+  margin-bottom: 5%;
+  font-weight: bold; }
+
+.city {
+  font-family: sans-serif;
+  font-size: 20px;
+  padding: 1%;
+  margin-bottom: 5%; }
+  .city .city_input {
+    font-family: sans-serif;
+    font-size: 15px;
+    padding: 1%;
+    margin-bottom: 5%;
+    background: #ccd8e3; }
+  .city #city_button {
+    font-family: sans-serif;
+    font-size: 15px;
+    padding: 1%;
+    margin-bottom: 5%;
+    background: #ccd8e3; }

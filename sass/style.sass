@@ -1,0 +1,26 @@
+$backColor: #8aa5bf
+
+@mixin font ($fontSize)
+  font-family: sans-serif
+  font-size: $fontSize
+  padding: 1%
+  margin-bottom: 5%
+
+body
+  background-color: $backColor
+  @include font(30px)
+
+.header
+  @include font(30px)
+  font-weight: bold
+
+.city
+  @include font(20px)
+
+  .city_input
+    @include font(15px)
+    background: lighten($backColor, 20%)
+
+  #city_button
+    @include font(15px)
+    background: lighten($backColor, 20%)
