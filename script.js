@@ -1,13 +1,13 @@
 function clickOnSearchButton() {
-
-  let city = document.getElementsByClassName('city_input').value;
+  let city = document.getElementById("city_input").value;
   let xhr = new XMLHttpRequest();
-  let url = "https://api.openweathermap.org/data/2.5/weather?q=" + city;
+  let url = "https://api.openweathermap.org/data/2.5/weather?q=" + city +
+  "&appid=e972dcd233bab1ebce419c370711921f&units=metric&lang=en";
 
   xhr.open("GET", url);
   xhr.responseType = "json";
 
-  xhr.onload() {
+  xhr.onload = function () {
     if (xhr.status == 200) {
       let weather = getWeather(xhr.response);
       displayWeather(weather);
@@ -54,9 +54,9 @@ function getWeather(resp) {
 }
 
 function displayWeather(weather) {
-    let source = document.getElementByID("weather-entry-template").innerHTML;
+    let source = document.getElementById("weather-entry-template").innerHTML;
     let template = Handlebars.compile(source);
     let html = template(weather);
-    document.getElementByClass("weather-block").innerHTML = html;
+    document.getElementById("weather-block").innerHTML = html;
 
 }

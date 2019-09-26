@@ -16,15 +16,15 @@
 
       <div class="city"><center>
         <p> City name: <br><br>
-              <input class = "city_input" type="text" size="30">
+              <input id = "city_input" type="text" size="30">
         </p>
-        <button class="btn btn-primary" onclick = "clickOnSearchButton()" type="button" id = "city_button">Find out the weather</button><br><br>
+        <button class="btn btn-primary" onclick = "clickOnSearchButton()" id = "city_button">Find out the weather</button><br><br>
         </center>
       </div>
 
-      <div class = "weather-block">
+      <div id = "weather-block">
         <script id="weather-entry-template" type="text/x-handlebars-template">
-          <div>
+          <div class="weather">
             {{#each param}}
               <div class = "params">
                 <div class="paramType">{{type}}</div>
@@ -32,7 +32,7 @@
               </div>
             {{/each}}
           </div>
-      </script>
+        </script>
       </div>
 
     </body>
