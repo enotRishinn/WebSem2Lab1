@@ -8,6 +8,16 @@ $secondBackColor: lighten($backColor, 10%)
   font-weight: bold
   border: 3px groove #abcdeb
 
+@mixin params ($fontSize, $cols, $margin)
+  float: left
+  background-color: darken($backColor, 10%)
+  margin-bottom: $margin
+  height: 50px
+  font-family: sans-serif
+  font-size: $fontSize
+  border: 3px groove #abcdeb
+  width: ((100% - (($cols - 1) * $margin)) / $cols)
+
 body
   background-color: $backColor
 
@@ -26,3 +36,6 @@ body
   #city_button
     @include font($searchTextSize)
     background-color: $secondBackColor
+
+.params
+  @include params($searchTextSize, 3, 2%)

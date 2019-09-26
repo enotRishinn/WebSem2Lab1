@@ -20,17 +20,14 @@ function clickOnSearchButton() {
 
 function getWeather(resp) {
   let weather = {
+  "City": resp.name,
   "param": [
-    {
-      "type": "City",
-      "value": resp.name
-    },
     {
       "type": "Weather",
       "value": resp.weather[0].description
     },
     {
-      "type": "Temperature, &deg;C",
+      "type": "Temperature, °C",
       "value": resp.main.temp
     },
     {

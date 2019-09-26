@@ -24,11 +24,12 @@
 
       <div id = "weather-block">
         <script id="weather-entry-template" type="text/x-handlebars-template">
+          <center><h1>City: {{City}}</h1></center>
           <div class="weather">
             {{#each param}}
-              <div class = "params">
-                <div class="paramType">{{type}}</div>
-                <div class="paramValue">{{value}}</div>
+              <div class = "params"> <center>
+                <div class="paramType"><b>{{type}}</b></div>
+                <div class="paramValue">{{value}}</div></center>
               </div>
             {{/each}}
           </div>
