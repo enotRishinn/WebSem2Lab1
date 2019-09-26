@@ -30,3 +30,7 @@ function getWeather(resp) {
   }
   return weather;
 }
+
+function displayWeather(weather) {
+  
+}
