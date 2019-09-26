@@ -6,6 +6,7 @@
 		    <title>Lab 1</title>
 		    <link href="css/style.css" rel="stylesheet"/>
         <script src="script.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
     </head>
     <body>
 
@@ -21,9 +22,18 @@
         </center>
       </div>
 
-      <script id="weather-entry-template" type="text/x-handlebars-template">
-
+      <div class = "weather-block">
+        <script id="weather-entry-template" type="text/x-handlebars-template">
+          <div>
+            {{#each param}}
+              <div class = "params">
+                <div class="paramType">{{type}}</div>
+                <div class="paramValue">{{value}}</div>
+              </div>
+            {{/each}}
+          </div>
       </script>
+      </div>
 
     </body>
 </html>

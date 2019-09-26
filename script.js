@@ -21,18 +21,42 @@ function clickOnSearchButton() {
 function getWeather(resp) {
   let weather = {
   "param": [
-    {"type": "City", "value": resp.name},
-    {"type": "Weather", "value": resp.weather[0].description},
-    {"type": "Temperature, &deg;C", "value": resp.main.temp},
-    {"type": "Pressure, hPA", "value": resp.main.pressure},
-    {"type": "Humidity, %", "value": resp.main.humidity},
-    {"type": "Wind speed, m/s", "value": resp.wind.speed},
-    {"type": "Clouds, %", "value": resp.clouds.all},
+    {
+      "type": "City",
+      "value": resp.name
+    },
+    {
+      "type": "Weather",
+      "value": resp.weather[0].description
+    },
+    {
+      "type": "Temperature, &deg;C",
+      "value": resp.main.temp
+    },
+    {
+      "type": "Pressure, hPA",
+      "value": resp.main.pressure},
+    {
+      "type": "Humidity, %",
+      "value": resp.main.humidity
+    },
+    {
+      "type": "Wind speed, m/s",
+      "value": resp.wind.speed
+    },
+    {
+      "type": "Clouds, %",
+      "value": resp.clouds.all
+    },
   ]
   }
   return weather;
 }
 
 function displayWeather(weather) {
+    let source = document.getElementByID("weather-entry-template").innerHTML;
+    let template = Handlebars.compile(source);
+    let html = template(weather);
+    document.getElementByClass("weather-block").innerHTML = html;
 
 }
