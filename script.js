@@ -24,7 +24,9 @@ function getWeather(resp) {
     "text_weather": resp.weather[0].description;
     "temperature": resp.main.temp + " &deg;C";
     "pressure": resp.main.pressure + " hPA";
-    "humidity": resp.main. 
-    "wind speed":
+    "humidity": resp.main.humidity + "%"
+    "wind speed": resp.wind.speed + " m/s"
+    "clouds": resp.clouds.all + "%"
   }
+  return weather;
 }
