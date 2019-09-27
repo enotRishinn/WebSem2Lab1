@@ -12,14 +12,17 @@ $secondBackColor: lighten($backColor, 10%)
   float: left
   background-color: darken($backColor, 10%)
   margin-bottom: $margin
+  margin-right: $margin
   height: 50px
   font-family: sans-serif
   font-size: $fontSize
-  border: 3px groove #abcdeb
   width: ((100% - (($cols - 1) * $margin)) / $cols)
+  &:nth-child(#{$cols}n)
+    margin-right: 0
 
 body
   background-color: $backColor
+  margin: 0
 
 .header
   @include font(30px)

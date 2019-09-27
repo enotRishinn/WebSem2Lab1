@@ -1,5 +1,6 @@
 body {
-  background-color: #cddeed; }
+  background-color: #cddeed;
+  margin: 0; }
 
 .header {
   font-family: sans-serif;
@@ -31,8 +32,10 @@ body {
   float: left;
   background-color: #a8c5e0;
   margin-bottom: 2%;
+  margin-right: 2%;
   height: 50px;
   font-family: sans-serif;
   font-size: 20px;
-  border: 3px groove #abcdeb;
   width: 32%; }
+  .params:nth-child(3n) {
+    margin-right: 0; }
