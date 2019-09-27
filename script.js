@@ -1,3 +1,5 @@
+var source = document.getElementById("weather-entry-template").innerHTML;
+
 function clickOnSearchButton() {
   let city = document.getElementById("city_input").value;
   let xhr = new XMLHttpRequest();
@@ -9,8 +11,7 @@ function clickOnSearchButton() {
 
   xhr.onload = function () {
     if (xhr.status == 200) {
-      let weather = getWeather(xhr.response);
-      displayWeather(weather);
+      displayWeather(getWeather(xhr.response));
     } else {
       alert("The request failed. Check the spelling of the city");
     }
@@ -51,7 +52,6 @@ function getWeather(resp) {
 }
 
 function displayWeather(weather) {
-    let source = document.getElementById("weather-entry-template").innerHTML;
     let template = Handlebars.compile(source);
     let html = template(weather);
     document.getElementById("weather-block").innerHTML = html;
