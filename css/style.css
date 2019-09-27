@@ -7,7 +7,7 @@ body {
   font-size: 30px;
   font-weight: bold;
   border: 3px groove #abcdeb;
-  background-image: url(/image/sky.jpg); }
+  background-image: url(../image/sky.jpg); }
 
 .city {
   font-family: sans-serif;
@@ -36,6 +36,17 @@ body {
   height: 50px;
   font-family: sans-serif;
   font-size: 20px;
-  width: 32%; }
+  width: 31%; }
   .params:nth-child(3n) {
     margin-right: 0; }
+
+.form_city {
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  border: 3px groove #abcdeb;
+  width: 100%;
+  padding: 2%; }
+
+#weather-block {
+  margin-left: 3%; }

@@ -16,7 +16,7 @@ $secondBackColor: lighten($backColor, 10%)
   height: 50px
   font-family: sans-serif
   font-size: $fontSize
-  width: ((100% - (($cols - 1) * $margin)) / $cols)
+  width: ((97% - (($cols - 1) * $margin)) / $cols)
   &:nth-child(#{$cols}n)
     margin-right: 0
 
@@ -26,7 +26,7 @@ body
 
 .header
   @include font(30px)
-  background-image: url(/image/sky.jpg)
+  background-image: url(../image/sky.jpg)
 
 .city
   @include font($searchTextSize)
@@ -42,3 +42,11 @@ body
 
 .params
   @include params($searchTextSize, 3, 2%)
+
+.form_city
+   @include font($searchTextSize)
+   width: 100%
+   padding: 2%
+
+#weather-block
+  margin-left: 3%

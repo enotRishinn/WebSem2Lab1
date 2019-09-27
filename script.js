@@ -53,7 +53,5 @@ function getWeather(resp) {
 
 function displayWeather(weather) {
     let template = Handlebars.compile(source);
-    let html = template(weather);
-    document.getElementById("weather-block").innerHTML = html;
-
+    document.getElementById("weather-block").innerHTML = template(weather);
 }
