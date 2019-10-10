@@ -7,7 +7,9 @@ body {
   font-size: 30px;
   font-weight: bold;
   border: 3px groove #abcdeb;
-  background-image: url(../image/sky.jpg); }
+  background-image: url(../image/sky.jpg);
+  text-align: center;
+  padding: 30px 0px; }
 
 .city {
   font-family: sans-serif;
@@ -36,7 +38,8 @@ body {
   height: 50px;
   font-family: sans-serif;
   font-size: 20px;
-  width: 31%; }
+  width: 31%;
+  text-align: center; }
   .params:nth-child(3n) {
     margin-right: 0; }
 
@@ -46,7 +49,11 @@ body {
   font-weight: bold;
   border: 3px groove #abcdeb;
   width: 100%;
-  padding: 2%; }
+  padding: 2%;
+  text-align: center; }
 
 #weather-block {
   margin-left: 3%; }
+
+.paramType {
+  font-weight: bold; }

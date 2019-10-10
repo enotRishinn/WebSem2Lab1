@@ -10,25 +10,27 @@
     </head>
     <body>
 
-      <div class="header">
-			     <p><center>Find out the weather forecast</center></p>
+    <div class="header">
+			  Find out the weather forecast
 		</div>
+
     <div class = "formCity">
-      <form class = "form_city" action="#" method="post">
-          <p>City name:</p>
+      <form class = "form_city" onsubmit="clickOnSearchButton(); return false;" >
+          City name:
           <input id = "city_input" type="text" size="30">
-          <input id = "city_button" type = "button" value = "Find out the weather" onclick = "clickOnSearchButton()" >
+          <input id = "city_button" type = "submit" value = "Find out the weather" >
       </form>
     </div>
 
       <div id = "weather-block">
         <script id="weather-entry-template" type="text/x-handlebars-template">
-          <h1>City: {{City}}</h1>
+          <h1>{{message}}</h1>
+          <h1>{{city}}</h1>
           <div class="weather">
             {{#each param}}
               <div class = "params">
                 <div class="paramType">{{type}}</div>
-                <div class="paramValue">{{value}}</div></center>
+                <div class="paramValue">{{value}}</div>
               </div>
             {{/each}}
           </div>
