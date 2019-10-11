@@ -1,4 +1,5 @@
 var source = document.getElementById("weather-entry-template").innerHTML;
+var error_source = document.getElementById("error-entry-template").innerHTML;
 
 function clickOnSearchButton() {
   let city = document.getElementById("city_input").value;
@@ -61,6 +62,6 @@ function displayWeather(weather) {
 }
 
 function displayError(message) {
-    let template = Handlebars.compile(source);
-    document.getElementById("weather-block").innerHTML = template(message);
+    let template = Handlebars.compile(error_source);
+    document.getElementById("error-block").innerHTML = template(message);
 }
