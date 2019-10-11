@@ -10,7 +10,7 @@ function clickOnSearchButton() {
   xhr.responseType = "json";
 
   xhr.onload = function () {
-    if (xhr.status == 200) {
+    if (xhr.status === 200) {
       displayWeather(getWeather(xhr.response));
     } else {
       let message = {
