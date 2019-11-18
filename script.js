@@ -1,26 +1,31 @@
 var source = document.getElementById("weather-entry-template").innerHTML;
 var error_source = document.getElementById("error-entry-template").innerHTML;
 
-function clickOnSearchButton() {
-  let city = document.getElementById("city_input").value;
-  let xhr = new XMLHttpRequest();
-  let url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city +
-  '&appid=e972dcd233bab1ebce419c370711921f&units=metric&lang=en';
+window.onload = () => {
+    document.getElementById("form_city").addEventListener("submit", fetchWeather);
+};
 
-  xhr.open("GET", url);
-  xhr.responseType = "json";
-
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      displayWeather(getWeather(xhr.response));
-    } else {
-      let message = {
-        message: 'The request failed. Check the spelling of the city'
-      };
-      displayError(message);
-    }
-  }
-  xhr.send();
+function fetchWeather(e) {
+    e.preventDefault();
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=`
+        + e.currentTarget.elements.city_input.value +
+        `&appid=665c8e98e586f364800fd238b845d042&units=metric&lang=en`;
+    fetch(url)
+      .then(response => {
+        response.json()
+          .then(json => {
+            if (response.ok) {
+              displayWeather(getWeather(json));
+              displayError(null);
+            } else {
+              displayWeather(null);
+              displayError({
+                message: json.message,
+              });
+            }
+          });
+        },
+        error => displayError(error));
 }
 
 function getWeather(resp) {

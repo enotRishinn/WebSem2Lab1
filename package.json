@@ -1,0 +1,37 @@
+{
+  "name": "lab1",
+  "version": "1.0.0",
+  "description": "---\r Сверстать страницу, содержащую поле ввода и кнопку для поиска информации о погоде в заданном городе. По нажатию на кнопку происходит вызов внешнего API погоды (например, https://openweathermap.org/api). Получаемые данные (не менее 5 элементов) отрисовываются на этой же странице.",
+  "main": "script.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "webpack -p",
+    "watch": "webpack --watch",
+    "test": "./node_modules/.bin/mocha ./test --require @babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enotRishinn/WebSem2Lab1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enotRishinn/WebSem2Lab1/issues"
+  },
+  "homepage": "https://github.com/enotRishinn/WebSem2Lab1#readme",
+  "dependencies": {
+    "handlebars": "^4.5.2",
+    "handlebars-loader": "^1.7.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.2",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "node-fetch": "^2.6.0",
+    "sinon": "^7.5.0"
+  }
+}

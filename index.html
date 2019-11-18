@@ -15,33 +15,32 @@
 		</div>
 
     <div class = "formCity">
-      <form class = "form_city" onsubmit="clickOnSearchButton(); return false;" >
+      <form id = "form_city">
           City name:
           <input id = "city_input" type="text" size="30">
           <input id = "city_button" type = "submit" value = "Find out the weather" >
       </form>
     </div>
 
-      <div id = "weather-block">
-        <script id="weather-entry-template" type="text/x-handlebars-template">
-          <h1>{{message}}</h1>
-          <h1>{{city}}</h1>
-          <div class="weather">
-            {{#each param}}
-              <div class = "params">
-                <div class="paramType">{{type}}</div>
-                <div class="paramValue">{{value}}</div>
-              </div>
-            {{/each}}
-          </div>
-        </script>
-      </div>
+    <div id = "weather-block">
+      <script id="weather-entry-template" type="text/x-handlebars-template">
+        <h1>{{city}}</h1>
+        <div class="weather">
+          {{#each param}}
+            <div class = "params">
+              <div class="paramType">{{type}}</div>
+              <div class="paramValue">{{value}}</div>
+            </div>
+          {{/each}}
+        </div>
+      </script>
+    </div>
 
-      <div id = "error-block">
-        <script id="error-entry-template" type="text/x-handlebars-template">
-          <h1>{{message}}</h1>
-        </script>
-      </div>
+    <div id = "error-block">
+      <script id="error-entry-template" type="text/x-handlebars-template">
+        <h1>{{message}}</h1>
+      </script>
+    </div>
 
     </body>
 </html>
