@@ -1,21 +1,15 @@
 const fetch = require('node-fetch');
 
-function onSubmit(e) {
+export function onSubmit(e) {
     e.preventDefault();
     fetchWeather(e.currentTarget.elements.city_input.value)
       .then(json => {
-        console.log(json);
         if (json.cod == 200) {
-          console.log("god");
           displayWeather(getWeather(json));
           displayError(null);
-          console.log("jhgfd");
         } else {
-          console.log("bad");
           displayWeather(null);
-          displayError({
-            message: json.message,
-          });
+          displayError(getError(json));
         }
       })
 }
@@ -25,8 +19,14 @@ export function fetchWeather(city){
     .then(response => response.json());
 }
 
+export function getError(resp) {
+  return {
+    message: resp.message,
+  }
+}
+
 export function getWeather(resp) {
-  let weather = {
+  return {
   city: resp.name,
   param: [
     {
@@ -55,7 +55,6 @@ export function getWeather(resp) {
     },
   ]
   }
-  return weather;
 }
 
 export function displayWeather(weather) {
