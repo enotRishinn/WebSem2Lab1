@@ -5,7 +5,7 @@
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		    <title>Lab 1</title>
 		    <link href="css/style.css" rel="stylesheet"/>
-        <script src="script.js" defer></script>
+        <script src="./main/main.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
     </head>
     <body>
@@ -22,7 +22,7 @@
       </form>
     </div>
 
-    <div id = "weather-block">
+    <div id = "weather-block"></div>
       <script id="weather-entry-template" type="text/x-handlebars-template">
         <h1>{{city}}</h1>
         <div class="weather">
@@ -34,13 +34,11 @@
           {{/each}}
         </div>
       </script>
-    </div>
 
-    <div id = "error-block">
+    <div id = "error-block"></div>
       <script id="error-entry-template" type="text/x-handlebars-template">
         <h1>{{message}}</h1>
       </script>
-    </div>
 
     </body>
 </html>

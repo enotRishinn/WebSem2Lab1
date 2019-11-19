@@ -3,13 +3,10 @@
   "version": "1.0.0",
   "description": "---\r Сверстать страницу, содержащую поле ввода и кнопку для поиска информации о погоде в заданном городе. По нажатию на кнопку происходит вызов внешнего API погоды (например, https://openweathermap.org/api). Получаемые данные (не менее 5 элементов) отрисовываются на этой же странице.",
   "main": "script.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "build": "webpack -p",
     "watch": "webpack --watch",
-    "test": "./node_modules/.bin/mocha ./test --require @babel/register"
+    "test": "./node_modules/.bin/mocha ./tests --require @babel/register"
   },
   "repository": {
     "type": "git",
@@ -32,6 +29,8 @@
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
     "node-fetch": "^2.6.0",
-    "sinon": "^7.5.0"
+    "sinon": "^7.5.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }

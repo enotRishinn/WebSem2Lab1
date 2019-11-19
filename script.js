@@ -1,34 +1,31 @@
-var source = document.getElementById("weather-entry-template").innerHTML;
-var error_source = document.getElementById("error-entry-template").innerHTML;
+const fetch = require('node-fetch');
 
-window.onload = () => {
-    document.getElementById("form_city").addEventListener("submit", fetchWeather);
-};
-
-function fetchWeather(e) {
+function onSubmit(e) {
     e.preventDefault();
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=`
-        + e.currentTarget.elements.city_input.value +
-        `&appid=665c8e98e586f364800fd238b845d042&units=metric&lang=en`;
-    fetch(url)
-      .then(response => {
-        response.json()
-          .then(json => {
-            if (response.ok) {
-              displayWeather(getWeather(json));
-              displayError(null);
-            } else {
-              displayWeather(null);
-              displayError({
-                message: json.message,
-              });
-            }
+    fetchWeather(e.currentTarget.elements.city_input.value)
+      .then(json => {
+        console.log(json);
+        if (json.cod == 200) {
+          console.log("god");
+          displayWeather(getWeather(json));
+          displayError(null);
+          console.log("jhgfd");
+        } else {
+          console.log("bad");
+          displayWeather(null);
+          displayError({
+            message: json.message,
           });
-        },
-        error => displayError(error));
+        }
+      })
 }
 
-function getWeather(resp) {
+export function fetchWeather(city){
+  return fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=665c8e98e586f364800fd238b845d042&units=metric&lang=en`)
+    .then(response => response.json());
+}
+
+export function getWeather(resp) {
   let weather = {
   city: resp.name,
   param: [
@@ -61,12 +58,14 @@ function getWeather(resp) {
   return weather;
 }
 
-function displayWeather(weather) {
+export function displayWeather(weather) {
+  var source = document.getElementById("weather-entry-template").innerHTML;
     let template = Handlebars.compile(source);
     document.getElementById("weather-block").innerHTML = template(weather);
 }
 
-function displayError(message) {
+export function displayError(message) {
+  var error_source = document.getElementById("error-entry-template").innerHTML;
     let template = Handlebars.compile(error_source);
     document.getElementById("error-block").innerHTML = template(message);
 }
