@@ -1,22 +1,26 @@
-const fetch = require('node-fetch');
+const Handlebars = require('handlebars');
 
 export function onSubmit(e) {
     e.preventDefault();
-    fetchWeather(e.currentTarget.elements.city_input.value)
-      .then(json => {
-        if (json.cod == 200) {
-          displayWeather(getWeather(json));
-          displayError(null);
-        } else {
-          displayWeather(null);
-          displayError(getError(json));
-        }
-      })
+    fetchWeather(e.currentTarget.elements.city_input.value);
 }
 
 export function fetchWeather(city){
   return fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=665c8e98e586f364800fd238b845d042&units=metric&lang=en`)
-    .then(response => response.json());
+    .then(response => { response.json()
+      .then(json => {
+        var source = document.getElementById("weather-entry-template").innerHTML;
+        var error_source = document.getElementById("error-entry-template").innerHTML;
+        if (response.ok) {
+          document.getElementById("weather-block").innerHTML = renderBody(getWeather(json), source);
+          document.getElementById("error-block").innerHTML = renderBody(null, error_source);
+        } else {
+          document.getElementById("weather-block").innerHTML = renderBody(null, source);
+          document.getElementById("error-block").innerHTML = renderBody(getError(json), error_source);
+        }
+      });
+    },
+    error => displayError(error));
 }
 
 export function getError(resp) {
@@ -57,14 +61,7 @@ export function getWeather(resp) {
   }
 }
 
-export function displayWeather(weather) {
-  var source = document.getElementById("weather-entry-template").innerHTML;
-    let template = Handlebars.compile(source);
-    document.getElementById("weather-block").innerHTML = template(weather);
-}
-
-export function displayError(message) {
-  var error_source = document.getElementById("error-entry-template").innerHTML;
-    let template = Handlebars.compile(error_source);
-    document.getElementById("error-block").innerHTML = template(message);
+export function renderBody(htmlBody, source) {
+    let temp = Handlebars.compile(source);
+    return temp(htmlBody);
 }
