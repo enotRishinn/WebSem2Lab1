@@ -25,6 +25,7 @@ const { fetchWeather, getWeather, getError, renderBody } = require('../script');
 //   });
 // });
 
+
 const expectWeatherData = {
 city: 'London',
 param: [
