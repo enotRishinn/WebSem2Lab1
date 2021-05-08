@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/register": "^7.6.2",
     "chai": "^4.2.0",
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.7.7",
     "mocha": "^6.2.2",
     "sinon": "^7.5.0",
     "webpack": "^4.41.2",
