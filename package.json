@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/enotRishinn/WebSem2Lab1#readme",
   "dependencies": {
-    "handlebars-loader": "^1.7.1"
+    "handlebars-loader": "^1.7.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
